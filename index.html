@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enchentes no Rio Grande do Sul</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+    <div class="in">
+        <!-- Slider para controlar as imagens -->
+        <input type="range" id="imageSlider" min="0" max="4" step="1" value="1"><br>
+
+        <p><strong>Nível de perigo: <span id="valorAgua">1</span></strong></p>
+    </div>
+
+    <div>
+
+    </div>
+
+    <div>
+        <!-- Imagem a ser trocada -->
+        <img id="displayImage" src="imgs/Nivel1.png" alt="Imagem" width="800px">
+    </div>
+
+    <script>
+        // Array com os caminhos das imagens
+        const imagens = [
+            "imgs/Nivel1.png",
+            "imgs/Nivel2_resized.png",
+            "imgs/Nivel3.png",
+            "imgs/Nivel4.png",
+            "imgs/Nivel5.png"
+        ];
+
+        // Seleciona o slider e a imagem
+        const slider = document.getElementById("imageSlider");
+        const imagem = document.getElementById("displayImage");
+
+        const valorAgua = document.getElementById("valorAgua");
+
+        // Função para trocar a imagem com base no valor do slider
+        slider.addEventListener("input", () => {
+            const indice = slider.value;
+            imagem.src = imagens[indice];
+
+            valorAgua.textContent = slider.value;
+        });
+    </script>
+</body>
+</html>
